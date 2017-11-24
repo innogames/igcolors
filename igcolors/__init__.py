@@ -28,8 +28,10 @@ version of the original color on most terminals.
 
 def _wrap_with(code):
 
-    def inner(text, light=False, bold=False, dim=False, underline=False,
-              blink=False, reverse=False, hidden=False):
+    def inner(*args, sep=' ', light=False, bold=False, dim=False,
+              underline=False, blink=False, reverse=False, hidden=False):
+        text = sep.join(args)
+
         c = code
         if light:
             c = str(int(c)+60)
