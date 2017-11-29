@@ -28,7 +28,7 @@ version of the original color on most terminals.
 
 def _wrap_with(code):
 
-    def inner(*args, sep=' ', light=False, bold=False, dim=False,
+    def inner(*args, sep=' ', light=False, bold=False, dim=False, italic=False,
               underline=False, blink=False, reverse=False, hidden=False):
         text = sep.join(args)
 
@@ -39,6 +39,8 @@ def _wrap_with(code):
             c = "1;%s" % c
         if dim:
             c = "2;%s" % c
+        if italic:
+            c = "3;%s" % c
         if underline:
             c = "4;%s" % c
         if blink:
